@@ -48,7 +48,9 @@ public abstract class TownsAndNationsMapCommon extends JavaPlugin {
         plugin = this;
 
         logger.info(subMapName + "Loading Plugin");
-        new Metrics(this, getBStatID());
+        if (getBStatID() > 0) {
+            new Metrics(this, getBStatID());
+        }
 
 
         PluginManager pm = getServer().getPluginManager();

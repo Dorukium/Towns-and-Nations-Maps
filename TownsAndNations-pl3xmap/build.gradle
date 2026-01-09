@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    exclusiveContent {
+        forRepository {
+            maven {
+                url = "https://api.modrinth.com/maven"
+            }
+        }
+        filter {
+            includeGroup "maven.modrinth"
+        }
+    }
+}
+
+dependencies {
+    implementation project(path: ':')
+    compileOnly 'maven.modrinth:pl3xmap:1.21.4-519'
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
